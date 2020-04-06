@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <form method="GET" action=".">
+     <label>Enter:</label>
+
+     <input type="date" id="start" name="date_on">
+         <input type="submit">
+
+     </form>
+
+      {%for instance in queryset1 %}
+             {{instance.Root}}
+        {% endfor %}
+      <div>
+    <table border="1">
+        <thead>
+        <th>Product_name</th>
+        <th>Price</th>
+        <th>Sale_able</th>
+        <th>Bounce</th>
+        <th>Sold</th>
+        <th>Balance</th>
+        </thead>
+         {%for instance in queryset %}
+        <tr>
+
+            <td>{{instance.Product_name}}</td>
+            <td>{{instance.Price}}</td>
+            <td>{{instance.Sale_able}}</td>
+            <td>{{instance.Bounce}}</td>
+            <td>{{instance.Sold}}</td>
+            <td>{{instance.Balance}}</td>
+
+
+        </tr>
+          {% endfor %}
+    </table>
+</body>
+</html>

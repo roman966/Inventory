@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title1</title>
+</head>
+<body>
+    <form method="post" action="">
+              {% csrf_token %}
+           {% for item in form%}
+           {%for field in item%}
+                {{item.label_tag}}
+                {{field}}
+            {%endfor %}
+             {% endfor %}
+        <input type="submit" value="Enter" />
+
+    </form>
+<div>
+    <table border="1">
+        <thead>
+        <th>Product_name</th>
+        <th>Price</th>
+        <th>Sale_able</th>
+        <th>Bounce</th>
+        <th>Sold</th>
+        <th>Balance</th>
+        </thead>
+         {%for instance in queryset %}
+        <tr>
+
+            <td>{{instance.Product_name}}</td>
+            <td>{{instance.Price}}</td>
+            <td>{{instance.Sale_able}}</td>
+            <td>{{instance.Bounce}}</td>
+            <td>{{instance.Sold}}</td>
+            <td>{{instance.Balance}}</td>
+
+
+        </tr>
+          {% endfor %}
+    </table>
+    <h6>{{total_balance}}</h6>
+
+
+</div>
+</body>
+</html>
